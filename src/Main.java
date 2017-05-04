@@ -8,14 +8,19 @@ public class Main {
 
     public static void main(String []args){
         Scanner scanner = new Scanner(System.in);
-        System.out.println("Please, input the string: ");
-        String input = scanner.nextLine();
+        System.out.println("Please, input the string: ");           
+        String input = scanner.nextLine();                          //read string from keyboard
 
         Map<Character, Integer> map = countOccurences(input);
         Character minKey = findLeastFrequentSymbol(map);
-        System.out.println(minKey);
+        System.out.println(minKey);                                 //output minimum key
     }
 
+    /**
+     * Create map and fill it with characters as map keys and their occurrences as map values
+     * @param str
+     * @return map
+     */
     private static Map<Character, Integer> countOccurences(String str){
         int length = str.length();
         Map<Character, Integer> map = new HashMap<Character, Integer>(Math.min(length, 26));
@@ -36,6 +41,11 @@ public class Main {
         return map;
     }
 
+    /**
+     * Find minimum value in a map, find and output corresponding key
+     * @param inputMap
+     * @return key of Character type
+     */
     private static Character findLeastFrequentSymbol(Map<Character, Integer> inputMap){
         int minValue = Collections.min(inputMap.values());
         Character minKey = null;
@@ -46,5 +56,4 @@ public class Main {
         }
         return minKey;
     }
-
 }
